@@ -6,6 +6,7 @@
     overflow-x: auto; /* Enable horizontal scrolling */
     gap: 16px; /* Space between items */
     padding: 16px; /* Padding inside the container */
+    margin-top: 20px;
 }
 
 /* Remove the scrollbar */
