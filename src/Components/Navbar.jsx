@@ -4,8 +4,6 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdGlobe } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import SearchBar from './SearchBar';
-import HorizontalScrollList from './HorizontalScrollList';
 import "../Styles/Navbar.css"
 
 const Navbar = ({ setCategory }) => {
@@ -104,8 +102,7 @@ const Navbar = ({ setCategory }) => {
                 )}
             </div>
 
-            <SearchBar />
-            <HorizontalScrollList setCategory={setCategory} />
+           
         </header>
     );
 };
