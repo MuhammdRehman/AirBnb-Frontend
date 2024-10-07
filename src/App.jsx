@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './Components/Navbar';
+import Home from './Components/Home';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <Router>
       <Navbar setCategory={setCategory} />
+      <Home />
     </Router>
   );
 }
