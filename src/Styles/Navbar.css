@@ -4,11 +4,11 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 50;
+    z-index: 1;
 }
 
 .navbar-wrapper {
-    max-width: 7xl;
+    max-width: 70%;
     margin: 0 auto;
     padding-left: 1rem;
     padding-right: 1rem;
