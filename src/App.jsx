@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
     <Router>
       <Navbar setCategory={setCategory} />
       <Home />
+
+      <Footer/>
     </Router>
   );
 }

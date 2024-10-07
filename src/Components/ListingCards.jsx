@@ -12,7 +12,7 @@ const ListingCard = ({ listing }) => {
                 <p className="listing-card-type">{listing.type}</p>
                 <p className="listing-card-guests">Guests: {listing.guests}</p>
                 <p className="listing-card-price">${listing.price} / night</p>
-                <p className="listing-card-rating">Rating: {listing.rating} 4.6</p>
+                <p className="listing-card-rating">Rating: {listing.rating} </p>
             </div>
         </div>
     );
