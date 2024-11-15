@@ -63,9 +63,7 @@ const Navbar = ({ setCategory }) => {
                             <IoMdGlobe className="navbar-icon" />
                         </button>
                         <div onClick={toggleMenu} className="navbar-icons">
-                            <div className="sm:block hidden">
-                                <GiHamburgerMenu className="navbar-icon" />
-                            </div>
+                           
                             <div className="sm:hidden">
                                 <button onClick={toggleMenu}>
                                     {isOpen ? <FaTimes className="navbar-icon" /> : <FaBars className="navbar-icon" />}

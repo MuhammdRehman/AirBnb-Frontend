@@ -112,6 +112,7 @@
     border-radius: 9999px;
     cursor: pointer;
     transition: box-shadow 0.2s ease-in;
+
 }
 
 .navbar-icons:hover {
@@ -177,6 +178,7 @@
 
     .navbar-icons {
         display: block;
+        display: flex;
     }
 
     .mobile-menu {
