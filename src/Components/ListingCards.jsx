@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../Styles/Listingcards.css';
 import axios from 'axios';
 
 const ListingCard = ({ listing }) => (
     <div className="listing-card">
         <img
-            src={listing.image ? listing.image : 'fallback-image-url.jpg'}
+            src={listing.image || 'fallback-image-url.jpg'}
             alt={listing.title || 'Listing'}
             className="listing-card-img"
         />
@@ -21,30 +20,39 @@ const ListingCard = ({ listing }) => (
 
 const ListingsGrid = ({ category = null }) => {
     const [listings, setListings] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
+        setLoading(true);
         axios.get('http://localhost:5000/api/listings')
             .then(response => {
                 console.log('API Response:', response.data);
                 setListings(response.data);
+                setLoading(false);
             })
             .catch(err => {
                 console.error('API Error:', err);
-                setListings([]); // Ensure empty state is handled
+                setError('Failed to load listings. Please try again later.');
+                setLoading(false);
             });
     }, []);
 
-    const filteredListings = category
-        ? listings.filter(listing => listing.category === category)
-        : listings;
+    // Log to debug
+    console.log('Listings:', listings);
 
-    console.log('Category:', category);
-    console.log('Filtered Listings:', filteredListings);
+    if (loading) {
+        return <p>Loading listings...</p>;
+    }
+
+    if (error) {
+        return <p>{error}</p>;
+    }
 
     return (
         <div className="listings-grid">
-            {filteredListings.length > 0 ? (
-                filteredListings.map(listing => (
+            {listings.length > 0 ? (
+                listings.map(listing => (
                     <ListingCard key={listing.id} listing={listing} />
                 ))
             ) : (
