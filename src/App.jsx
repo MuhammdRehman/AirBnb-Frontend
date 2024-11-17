@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar';
-import HorizontalScrollList from './Components/HorizontalScrollList';
 import Home from './Components/Home';
-import Footer from './Components/Footer';
 import ListingDetails from './Components/ListingDetails'; 
+import BookingPage from './Components/BookingPage';
 
 function App() {
   return (
@@ -11,8 +9,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-       
         <Route path="/listing/:id" element={<ListingDetails />} />
+        <Route path="/booking/:id" element={<BookingPage />} />
       </Routes>
      
     </Router>

@@ -1,4 +1,4 @@
-import ListingsGrid from './ListingCards';
+import ListingsGrid from './ListingsGrid';
 import '../Styles/Listingcards.css'; // Import the CSS file
 import Navbar from './Navbar';
 import HorizontalScrollList from './HorizontalScrollList';

@@ -1,0 +1,27 @@
+.booking-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.listing-section {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+.error{
+    color:red;
+}
+.success{
+    color:green;
+}
