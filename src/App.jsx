@@ -1,19 +1,20 @@
-import { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import HorizontalScrollList from './Components/HorizontalScrollList';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
+import ListingDetails from './Components/ListingDetails'; 
 
 function App() {
-  const [category, setCategory] = useState('');
   return (
     <Router>
-      <Navbar setCategory={setCategory} />
-      <HorizontalScrollList setCategory={setCategory}/>
-      <Home setCategory={setCategory} />
-      
-      <Footer/>
+      <Navbar />
+      <HorizontalScrollList />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/listing/:id" element={<ListingDetails />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }

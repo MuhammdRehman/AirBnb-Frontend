@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const ListingCard = ({ listing }) => (
-    <div className="listing-card">
+const ListingCard = ({ listing, onClick }) => (
+    <div className="listing-card" onClick={() => onClick(listing.id)}>
         <img
             src={listing.image || 'fallback-image-url.jpg'}
             alt={listing.title || 'Listing'}
@@ -18,10 +19,11 @@ const ListingCard = ({ listing }) => (
     </div>
 );
 
-const ListingsGrid = ({ category = null }) => {
+const ListingsGrid = () => {
     const [listings, setListings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
@@ -38,8 +40,9 @@ const ListingsGrid = ({ category = null }) => {
             });
     }, []);
 
-    // Log to debug
-    console.log('Listings:', listings);
+    const handleCardClick = (id) => {
+        navigate(`/listing/${id}`);
+    };
 
     if (loading) {
         return <p>Loading listings...</p>;
@@ -53,7 +56,11 @@ const ListingsGrid = ({ category = null }) => {
         <div className="listings-grid">
             {listings.length > 0 ? (
                 listings.map(listing => (
-                    <ListingCard key={listing.id} listing={listing} />
+                    <ListingCard
+                        key={listing.id}
+                        listing={listing}
+                        onClick={handleCardClick}
+                    />
                 ))
             ) : (
                 <p>No listings available.</p>
