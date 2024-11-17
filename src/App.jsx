@@ -8,13 +8,13 @@ import ListingDetails from './Components/ListingDetails';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <HorizontalScrollList />
+      
       <Routes>
         <Route path="/" element={<Home />} />
+       
         <Route path="/listing/:id" element={<ListingDetails />} />
       </Routes>
-      <Footer />
+     
     </Router>
   );
 }
