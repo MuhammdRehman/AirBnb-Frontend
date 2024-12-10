@@ -9,9 +9,9 @@ const Home = ({ category }) => {
         <>
             <Navbar />
             <HorizontalScrollList />
-            <div className='home'>
+            {/* <div className='home'>
                 <ListingsGrid category={category} />
-            </div>
+            </div> */}
             <Footer />
         </>
     )
