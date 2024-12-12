@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdGlobe } from 'react-icons/io';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import "../Styles/Navbar.css"
 
@@ -74,26 +74,25 @@ const Navbar = ({ setCategory }) => {
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
                 {isOpen && (
                     <div className="mobile-menu visible">
-                        <NavLink to="/" className="mobile-menu-link">
+                        <NavLink to="/signup" className="mobile-menu-link" >
                             Sign up
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link">
+                        <NavLink to="/login" className="mobile-menu-link" onClick={<Navigate to={'/login'} />}>
                             Log in
                         </NavLink>
                         <div className="mobile-menu-divider"></div>
-                        <NavLink to="/" className="mobile-menu-link">
+                        <NavLink to="/stays" className="mobile-menu-link">
                             Gift Cards
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link">
+                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'/'} />}>
                             Airbnb Your Home
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link">
+                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'#'} />}>
                             Host an Experience
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link">
+                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'/helpcenter'} />}>
                             Help Center
                         </NavLink>
                     </div>

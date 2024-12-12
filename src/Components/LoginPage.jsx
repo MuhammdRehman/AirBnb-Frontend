@@ -42,7 +42,7 @@ const LoginPage = () => {
                     <input type={showPassword ? "text" : "password"} id="password" placeholder="Please enter a strong password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     <span
                         className="toggle-icon"
-                        onClick={() => setShowPassword(!showPassword)}> {showPassword ? "👁️‍🗨️" : "🙈"}
+                        onClick={() => setShowPassword(!showPassword)}> {showPassword ?   "🙈" : "👁️‍🗨️"}
                     </span>
                 </div>
 

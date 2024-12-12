@@ -38,8 +38,8 @@ function App() {
 
         <Route path="/" element={
           user ? <Home /> : <Navigate to='/login'/>} />
-        {/* <Route path="/listing/:id" element={<ListingDetails />} />
-        <Route path="/booking/:id" element={<BookingPage />} /> */}
+        <Route path="/listings/:id" element={<ListingDetails />} />
+        <Route path="/bookings/:id" element={<BookingPage />} />
       </Routes>
   );
 }

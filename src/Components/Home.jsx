@@ -6,14 +6,13 @@ import Footer from './Footer';
 
 const Home = ({ category }) => {
     return (
-        <>
-            <Navbar />
-            <HorizontalScrollList />
-            {/* <div className='home'>
-                <ListingsGrid category={category} />
-            </div> */}
-            <Footer />
-        </>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Navbar />
+        <HorizontalScrollList />
+        <ListingsGrid category={category} />
+        <Footer />
+      </div>
+
     )
 }
 

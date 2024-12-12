@@ -2,7 +2,7 @@
 .horizontal-scroll-list {
     display: flex;
     background-color: white;
-    width: 100vw; /* Full width */
+    width: 95%; /* Full width */
     overflow-x: auto; /* Enable horizontal scrolling */
     gap: 16px; /* Space between items */
     padding: 16px; /* Padding inside the container */

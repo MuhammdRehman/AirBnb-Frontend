@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import ListingsCard from './ListingsCard'; // Assuming ListingCard is in the same folder
+import ListingsCard from './ListingsCard';
 
 const ListingsGrid = () => {
     const [listings, setListings] = useState([]);
@@ -10,24 +10,33 @@ const ListingsGrid = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setLoading(true);
-        axios.get('http://localhost:5000/api/listings')
-            .then(response => {
-                setListings(response.data);
-                setLoading(false);
-            })
-            .catch(err => {
-                setError('Failed to load listings. Please try again later.');
-                setLoading(false);
-            });
+        handleGet();
     }, []);
+    const handleGet = async () => {
+        setLoading(true);
+        try {
+          const res = await axios.get('http://localhost:3001/api/listings');
+          console.log(res.data);
+      
+          if (res.status === 200) {
+            setListings([...res.data.data]);
+          } else {
+            setError('Failed to fetch listings: ' + res.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching listings:', error);
+          setError('Failed to load listings. Please try again later.');
+        } finally {
+          setLoading(false);
+        }
+      };
 
     const handleCardClick = (id) => {
-        navigate(`/listing/${id}`);
+        navigate(`/listings/${id}`);
     };
 
     const handleBookNowClick = (id) => {
-        navigate(`/booking/${id}`);
+        navigate(`/bookings/${id}`);
     };
 
     if (loading) {
@@ -39,6 +48,7 @@ const ListingsGrid = () => {
     }
 
     return (
+
         <div className="listings-grid">
             {listings.length > 0 ? (
                 listings.map(listing => (

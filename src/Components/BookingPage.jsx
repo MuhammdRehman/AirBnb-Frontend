@@ -13,7 +13,7 @@ const BookingPage = () => {
     const [success, setSuccess] = useState('');
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/listings/${id}`)
+        axios.get(`http://localhost:3001/api/listings/${id}`)
             .then((response) => {
                 setListing(response.data);
             })
@@ -34,7 +34,7 @@ const BookingPage = () => {
         }
 
         try {
-            const response = await axios.post(`/api/booking/${id}`, {
+            const response = await axios.post(`/api/bookings/${id}`, {
                 checkIn,
                 checkOut,
             });

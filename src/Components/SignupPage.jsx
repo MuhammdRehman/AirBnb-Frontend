@@ -44,7 +44,7 @@ const SignupPage = () => {
                     <input type={showPassword ? "text" : "password"} id="password" placeholder="Please enter a strong password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     <span
                         className="toggle-icon"
-                        onClick={() => setShowPassword(!showPassword)}> {showPassword ? "👁️‍🗨️" : "🙈"}
+                        onClick={() => setShowPassword(!showPassword)}> {showPassword ?  "🙈" : "👁️‍🗨️" }
                     </span>
                 </div>
 
@@ -53,7 +53,7 @@ const SignupPage = () => {
                     <input type={showConfirmPassword ? "text" : "password"} id="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                     <span
                         className="toggle-icon"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}>{showConfirmPassword ? "👁️‍🗨️" : "🙈"}
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}>{showConfirmPassword ? "🙈" : "👁️‍🗨️" }
                     </span>
                 </div>
 

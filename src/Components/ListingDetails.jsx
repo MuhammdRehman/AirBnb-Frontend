@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import '../Styles/ListingsDetail.css';
+import { SiTruenas } from 'react-icons/si';
 
 const ListingDetails = () => {
     const { id } = useParams();
@@ -9,17 +11,23 @@ const ListingDetails = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setLoading(true);
-        axios.get(`http://localhost:5000/api/listings/${id}`)
-            .then(response => {
-                setListing(response.data);
+        const handleListingDetail = async (id) => {
+            try {
+                setLoading(true);
+                const res = await axios.get(`http://localhost:3001/api/listings/${id}`);
+                if (res.status === 200) {
+                    setListing(res.data);
+                } else {
+                    setError("Error fetching listing data");
+                }
+            } catch (error) {
+                setError(error.message);
+            } finally {
                 setLoading(false);
-            })
-            .catch(err => {
-                console.error('API Error:', err);
-                setError('Failed to load listing details. Please try again later.');
-                setLoading(false);
-            });
+            }
+        };
+
+        handleListingDetail(id);
     }, [id]);
 
     if (loading) {
@@ -31,22 +39,44 @@ const ListingDetails = () => {
     }
 
     if (!listing) {
-        return <p>Listing not found.</p>;
+        return <p>Property not found.</p>;
     }
 
     return (
         <div className="listing-details">
-            <h1>{listing.title}</h1>
-            <img
-                src={listing.image || 'fallback-image-url.jpg'}
-                alt={listing.title || 'Listing'}
-                className="listing-details-img"
-            />
-            <p>Category: {listing.category}</p>
-            <p>Guests: {listing.guests}</p>
-            <p>Price: ${listing.price} / night</p>
-            <p>Rating: {listing.rating}</p>
-            <p>{listing.description || 'No description available.'}</p>
+            <header className="listing-details-header">
+                <h1>{listing.name}</h1>
+                <img
+                    src={listing.images.picture_url || 'fallback-image-url.jpg'}
+                    alt={listing.name || 'Listing'}
+                    className="listing-details-img"
+                />
+            </header>
+            <div className="listing-details-info">
+                <p>Category: {listing.property_type}</p>
+                <p>Property Contains: {listing.bedrooms} BedRooms, {listing.bathrooms} BathRooms</p>
+                <p>Price: ${listing.price} / night</p>
+                {listing.rating && <p>Rating: {listing.rating}</p>}
+                <p>{`Description: ${listing.summary || 'No description available.'}`}</p>
+
+                {listing.amenities && (
+                    <div className="listing-details-amenities">
+                        <h3>You will get Following Facilities</h3>
+                        <ul>
+                            {listing.amenities.map((amenity) => (
+                                <li key={amenity}>{amenity}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                {
+                    listing.address && (
+                        <div className="listing-details-address">
+                            <h3>{`Address: ${listing.address.street}, ${listing.address.suburb}, ${listing.address.country}`}</h3>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 };
