@@ -33,7 +33,7 @@ This repository contains the frontend implementation for the AirBnb Inspired app
 ### Running the Application
 1. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 2. Open your browser and navigate to link shown in terminal.
