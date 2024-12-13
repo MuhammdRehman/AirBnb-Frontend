@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import ListingForm from './Components/ListingForm';
 import AdminBookingsPage from './Components/AdminBookingsPage';
+import UserProfilePage from './Components/UserProfilePage';
 
 function App() {
   const {user,setUser,Logout} = useAuthStore();
@@ -42,10 +43,16 @@ function App() {
         <Route path="/" element={
           user ? <Home /> : <Navigate to='/login'/>} />
 
-        <Route path="/listings/:id" element={<ListingDetails />} />
-        <Route path="/bookings/:id" element={<BookingPage />} />
-        <Route path='/listingform' element={<ListingForm/>}/>
-        <Route path='/bookings' element={<AdminBookingsPage/>}/>
+        <Route path="/listings/:id" element={
+          user ? <ListingDetails /> : <Navigate to='/login'/>} /> 
+        <Route path="/bookings/:id" element={
+          user ? <BookingPage /> : <Navigate to='/login'/>} />
+        <Route path='/listingform' element={
+         (user && user.username=="Admin")? <ListingForm/> : <Navigate to='/login'/>}/>
+        <Route path='/bookings' element={
+           (user && user.username=="Admin")?<AdminBookingsPage/> : <Navigate to='/login'/>}/>
+        <Route path='/profile' element={
+          user  ? <UserProfilePage />: <Navigate to='/login'/>}/>
       </Routes>
   );
 }

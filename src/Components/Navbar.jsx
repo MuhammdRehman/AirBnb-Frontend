@@ -24,7 +24,9 @@ const Navbar = ({ setCategory }) => {
             setShowSearchBar(false);
         }
     };
-
+    const handleProfileClick = () =>{
+        <Navigate to='/profile'/>
+    }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -86,6 +88,9 @@ const Navbar = ({ setCategory }) => {
                         </NavLink>
                         <NavLink to="/login" className="mobile-menu-link" onClick={handleLogout}>
                             Log Out
+                        </NavLink>
+                        <NavLink to="/profile" className="mobile-menu-link" onClick={handleProfileClick}>
+                            My Profile
                         </NavLink>
                         <div className="mobile-menu-divider"></div>
                         <NavLink to="/listingform" className="mobile-menu-link" onClick={<Navigate to={'/listingform'} />}>

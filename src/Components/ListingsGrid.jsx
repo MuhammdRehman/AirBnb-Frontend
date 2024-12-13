@@ -15,13 +15,12 @@ const ListingsGrid = () => {
     useEffect(() => {
         handleGet();
     }, []);
-
     const handleDelete = async (id) => {
         try {
             const res = await axios.delete(`http://localhost:3001/api/admin/listings/${id}`);
             if (res.status === 200) {
                 toast.success("Listing Successfully Deleted");
-                setListings(prev => prev.filter(listing => listing._id !== id)); // Remove deleted listing from state
+                setListings(prev => prev.filter(listing => listing._id !== id)); 
             } else {
                 toast.error("Listing is unable to delete");
             }
@@ -76,7 +75,7 @@ const ListingsGrid = () => {
                         onClick={handleCardClick}
                         onBookNow={handleBookNowClick}
                         onDelete={handleDelete}
-                        admin={user.username === "Admin"} // Pass admin status directly
+                        admin={user.username === "Admin"} 
                     />
                 ))
             ) : (

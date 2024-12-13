@@ -26,13 +26,7 @@ const ListingCard = ({ listing, onClick, onBookNow, onDelete, admin }) => {
                 <p className="listing-card-rating">Rating: {listing.rating || 'N/A'}</p>
                 <div className="btns">
                     {admin && (
-                        <button
-                            className="book-now-btn"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                onDelete(listing._id);
-                            }}
-                        >
+                        <button className="book-now-btn" onClick={(e) => { e.stopPropagation(); onDelete(listing._id); }}>
                             Remove Listing
                         </button>
                     )
