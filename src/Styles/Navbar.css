@@ -4,17 +4,16 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 10; /* Increased for better layering */
+    z-index: 10;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-wrapper {
-    max-width: 85%; /* Adjusted for better centering */
+    max-width: 85%; 
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* Navbar inner container */
 .navbar-inner {
     display: flex;
     justify-content: space-between;
@@ -22,17 +21,16 @@
     padding: 1rem 0;
 }
 
-/* Logo */
+
 .navbar-logo {
-    font-size: 1.5rem; /* Slightly increased for visibility */
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #ff385c; /* Airbnb red */
+    color: #ff385c; 
     text-decoration: none;
 }
 
-/* Search Bar */
 .navbar-searchbar {
-    display: none; /* Hidden by default */
+    display: none;
 }
 
 .navbar-searchbar.visible {
@@ -42,7 +40,7 @@
     border-radius: 9999px;
     padding: 0.5rem 1rem;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Minor shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .searchbar-input {

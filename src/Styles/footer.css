@@ -1,38 +1,33 @@
-/* Footer container */
+
 .footer {
-    background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
-    padding: 40px 0; /* Equivalent to py-10 */
+    background-color: #f3f4f6;
+    padding: 40px 0;
 }
 
-/* Container inside the footer */
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 16px; /* Equivalent to px-4 */
+    padding: 0 16px;
 }
 
-/* Flex container for the lists and sections */
 .footer-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 24px; /* Equivalent to mb-6 */
+    margin-bottom: 24px;
 }
 
-/* Each footer column */
 .footer-column {
     flex: 1;
     margin-bottom: 16px;
 }
 
-/* Footer section headings */
 .footer-heading {
-    color: #374151; /* Equivalent to text-gray-700 */
-    font-weight: 600; /* Equivalent to font-semibold */
-    margin-bottom: 8px; /* Equivalent to mb-2 */
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-/* Footer links */
 .footer-link-list {
     list-style: none;
     padding: 0;
@@ -40,16 +35,15 @@
 }
 
 .footer-link {
-    color: #4b5563; /* Equivalent to text-gray-600 */
+    color: #4b5563;
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 }
 
 .footer-link:hover {
-    color: #1f2937; /* Equivalent to hover:text-gray-800 */
+    color: #1f2937;
 }
 
-/* Footer bottom section */
 .footer-bottom {
     display: flex;
     flex-wrap: wrap;
@@ -57,30 +51,27 @@
     align-items: center;
 }
 
-/* Footer copyright text */
 .footer-copyright {
-    color: #4b5563; /* Equivalent to text-gray-600 */
+    color: #4b5563;
 }
 
-/* Social media icons */
 .footer-socials {
     display: flex;
-    gap: 16px; /* Equivalent to space-x-4 */
+    gap: 16px;
 }
 
 .footer-social-icon {
-    color: #4b5563; /* Equivalent to text-gray-600 */
+    color: #4b5563;
     transition: color 0.2s ease-in-out;
 }
 
 .footer-social-icon:hover {
-    color: #1f2937; /* Equivalent to hover:text-gray-800 */
+    color: #1f2937;
 }
 
-/* Footer select box */
 .footer-select {
-    border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
-    border-radius: 8px; /* Equivalent to rounded-md */
-    padding: 8px; /* Equivalent to p-2 */
-    color: #4b5563; /* Equivalent to text-gray-600 */
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px;
+    color: #4b5563;
 }

@@ -1,41 +1,36 @@
-/* Container styles for the horizontal scroll list */
 .horizontal-scroll-list {
     display: flex;
     background-color: white;
-    width: 95%; /* Full width */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    gap: 16px; /* Space between items */
-    padding: 16px; /* Padding inside the container */
+    width: 95%; 
+    overflow-x: auto; 
+    gap: 16px; 
+    padding: 16px; 
     margin-top: 20px;
 }
 
-/* Remove the scrollbar */
 .no-scrollbar::-webkit-scrollbar {
-    display: block; /* Hide scrollbar in Webkit browsers */
+    display: block; 
 }
 
 .categorytext{
     font-weight:25px;
 }
 
-/* Button styles */
 .horizontal-scroll-item {
     background-color: white;
     padding: 8px 0;
-    border-radius: 12px; /* Rounded corners */
+    border-radius: 12px; 
     display: flex;
-    width: 120px; /* Fixed width for buttons */
+    width: 120px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px; /* Space between the icon and text */
-    font-size: 0.875rem; /* Equivalent to text-sm */
-    font-weight: 500; /* Equivalent to font-medium */
-    color: #4b5563; /* Gray text (Equivalent to text-gray-700) */
-    transition: background-color 0.2s ease-in-out; /* Smooth hover transition */
+    gap: 8px; 
+    font-size: 0.875rem; 
+    font-weight: 500;
+    color: #4b5563; 
+    transition: background-color 0.2s ease-in-out; 
 }
-
-/* Hover effect */
 .horizontal-scroll-item:hover {
-    background-color: #f3f4f6; /* Light gray background on hover */
+    background-color: #f3f4f6;
 }
