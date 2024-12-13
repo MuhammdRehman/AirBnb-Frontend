@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import ListingsCard from './ListingsCard';
 import '../Styles/BookingPage.css';
+import ListingDetails from './ListingDetails';
+import { useAuthStore } from '../store/useAuthStore';
+import toast from 'react-hot-toast';
 
 const BookingPage = () => {
+    const { user } = useAuthStore();
     const { id } = useParams();
     const [listing, setListing] = useState(null);
     const [checkIn, setCheckIn] = useState('');
     const [checkOut, setCheckOut] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get(`http://localhost:3001/api/listings/${id}`)
             .then((response) => {
@@ -25,37 +28,41 @@ const BookingPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Validate dates
         if (new Date(checkIn) >= new Date(checkOut)) {
             setError('Check-in date must be earlier than the Check-out date.');
             setSuccess('');
             return;
         }
-
+    
         try {
-            const response = await axios.post(`/api/bookings/${id}`, {
-                checkIn,
-                checkOut,
-            });
-
+            const response = await axios.post(`http://localhost:3001/api/listings/bookings/${id}`,
+                {
+                    userId: user._id,      
+                    checkIn,               
+                    checkOut,              
+                },
+               
+            );
             console.log('Booking Successful:', response.data);
             setSuccess('Booking Successful!');
+            toast.success("Booked Successfully");
             setError('');
+            navigate("/");
+            
         } catch (err) {
             console.error('Error making booking:', err.response?.data || err.message);
             setError(err.response?.data?.message || 'Failed to complete booking.');
             setSuccess('');
         }
     };
-
+    
     return (
         <div className="booking-page">
             <h1>Booking Details</h1>
 
             {listing ? (
                 <div className="listing-section">
-                    <ListingsCard listing={listing} onClick={() => { }} fromBooking={true} />
+                    <ListingDetails />
                 </div>
             ) : (
                 <p>Loading listing details...</p>

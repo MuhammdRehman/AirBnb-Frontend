@@ -1,0 +1,45 @@
+/* AdminBookingsPage.css */
+.admin-bookings-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bookings-table th, .bookings-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.bookings-table th {
+    background-color: #f4f4f4;
+}
+
+.bookings-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+ul li {
+    margin: 5px 0;
+}

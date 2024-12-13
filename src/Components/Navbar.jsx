@@ -3,17 +3,20 @@ import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdGlobe } from 'react-icons/io';
 import { Navigate, NavLink } from 'react-router-dom';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import "../Styles/Navbar.css"
+import { useAuthStore } from '../store/useAuthStore';
 
 const Navbar = ({ setCategory }) => {
+    const {user,setUser,Logout} = useAuthStore();
     const [isOpen, setIsOpen] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
+    const handleLogout = () =>{
+        Logout();
+    }
     const handleScroll = () => {
         if (window.scrollY > 50) {
             setShowSearchBar(true);
@@ -57,7 +60,6 @@ const Navbar = ({ setCategory }) => {
                         </div>
                     )}
 
-                    {/* Right Side Icons */}
                     <div className="navbar-right"> 
                         <button className="right-link">
                             <IoMdGlobe className="navbar-icon" />
@@ -82,11 +84,11 @@ const Navbar = ({ setCategory }) => {
                         <NavLink to="/login" className="mobile-menu-link" onClick={<Navigate to={'/login'} />}>
                             Log in
                         </NavLink>
-                        <div className="mobile-menu-divider"></div>
-                        <NavLink to="/stays" className="mobile-menu-link">
-                            Gift Cards
+                        <NavLink to="/login" className="mobile-menu-link" onClick={handleLogout}>
+                            Log Out
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'/'} />}>
+                        <div className="mobile-menu-divider"></div>
+                        <NavLink to="/listingform" className="mobile-menu-link" onClick={<Navigate to={'/listingform'} />}>
                             Airbnb Your Home
                         </NavLink>
                         <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'#'} />}>

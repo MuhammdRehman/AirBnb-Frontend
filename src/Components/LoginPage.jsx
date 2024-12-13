@@ -18,7 +18,7 @@ const LoginPage = () => {
             });
            
             console.log(res);
-            //toast.success("Login Successful");
+            toast.success("Login Successful");
             setUser(res.data.user);
             localStorage.setItem("token", res.data.token);
             
@@ -50,6 +50,9 @@ const LoginPage = () => {
                     Login
                 </button>
             </form>
+            <br />
+            <br />
+            <label htmlFor="Signup">Click here to <a href="/signup">Create New Account</a></label>
         </div>
     );
 };

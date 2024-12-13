@@ -17,13 +17,29 @@
     margin-bottom: 20px;
   }
   
-  .listing-details-img {
-    width: 40%;
+  .listing-details-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.listing-details img {
+    max-width: 100%;
     height: auto;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 20px;
-  }
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.image-container{
+  display: flex;
+  gap: 2px;
+}
+.image-container button{
+  background-color: #dab3b3;
+}
+.image-container button:hover{
+  background-color: #f19898;
+}
   
   .listing-details-info {
     flex: 1;

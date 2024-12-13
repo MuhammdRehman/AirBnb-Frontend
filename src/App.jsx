@@ -7,11 +7,14 @@ import SignupPage from './Components/SignupPage';
 import {useAuthStore} from './store/useAuthStore';
 import { useEffect } from 'react';
 import axios from 'axios';
+import ListingForm from './Components/ListingForm';
+import AdminBookingsPage from './Components/AdminBookingsPage';
 
 function App() {
   const {user,setUser,Logout} = useAuthStore();
   useEffect(() => {
     handleLoginBack();
+    console.log(user);
   },[]);
   const handleLoginBack = async()=>{
     try {
@@ -38,8 +41,11 @@ function App() {
 
         <Route path="/" element={
           user ? <Home /> : <Navigate to='/login'/>} />
+
         <Route path="/listings/:id" element={<ListingDetails />} />
         <Route path="/bookings/:id" element={<BookingPage />} />
+        <Route path='/listingform' element={<ListingForm/>}/>
+        <Route path='/bookings' element={<AdminBookingsPage/>}/>
       </Routes>
   );
 }
