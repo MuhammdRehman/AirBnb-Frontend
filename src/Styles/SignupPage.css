@@ -20,7 +20,7 @@
     font-weight: bold;
   }
   
-  .form-group input {
+  .input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -33,7 +33,7 @@
     position: absolute;
     right: 10px;
     top: 63%;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     cursor: pointer;
     font-size: 20px;
   }

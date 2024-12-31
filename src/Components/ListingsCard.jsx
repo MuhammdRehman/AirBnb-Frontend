@@ -23,15 +23,15 @@ const ListingCard = ({ listing, onClick, onBookNow, onDelete, admin }) => {
                 <p className="listing-card-type">{listing.property_type || 'N/A'}</p>
                 <p className="listing-card-guests">Guests: {listing.guests || 'N/A'}</p>
                 <p className="listing-card-price">${listing.price || 0} / night</p>
-                <p className="listing-card-rating">Rating: {listing.rating || 'N/A'}</p>
+                <p className="listing-card-rating">Rating: {listing.rating ? `${listing.rating} ⭐` : 'N/A'}</p>
                 <div className="btns">
                     {admin && (
-                        <button className="book-now-btn" onClick={(e) => { e.stopPropagation(); onDelete(listing._id); }}>
+                        <button className="button" onClick={(e) => { e.stopPropagation(); onDelete(listing._id); }}>
                             Remove Listing
                         </button>
                     )
                     }
-                    <button className="book-now-btn" onClick={(e) => { e.stopPropagation(); onBookNow(listing._id); }}>
+                    <button className="button" onClick={(e) => { e.stopPropagation(); onBookNow(listing._id); }}>
                         Book Now
                     </button>
 

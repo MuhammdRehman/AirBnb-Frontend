@@ -21,12 +21,9 @@ const Home = ({ category }) => {
       <Navbar />
       <HorizontalScrollList />
       <div style={{ display: 'flex', flexDirection:'column', gap: '5px' }}>
-        {user.username === "Admin" && <button onClick={handleListing}>Add Listing</button>}
-        {user.username === "Admin" && <button onClick={handleBooking}>See All Bookings</button>}
+        {user && user.role !== "guest" && <button className='button' onClick={handleListing}>Add Listing</button>}
+        {user && user.role !== "guest" && <button className='button' onClick={handleBooking}>See All Bookings</button>}
       </div>
-
-
-
       <ListingsGrid category={category} />
       <Footer />
     </div>

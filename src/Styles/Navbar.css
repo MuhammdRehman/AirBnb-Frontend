@@ -65,9 +65,8 @@
     margin-left: 0.375rem;
 }
 
-/* Navigation Links */
 .navbar-links {
-    display: none; /* Hidden until triggered by scroll */
+    display: none; 
     gap: 1.5rem;
 }
 
@@ -86,7 +85,6 @@
     color: black;
 }
 
-/* Right-side icons */
 .navbar-right {
     display: flex;
     align-items: center;
@@ -114,7 +112,7 @@
 }
 
 .navbar-icons:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Slight hover shadow */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
 }
 
 .navbar-icon {
@@ -127,7 +125,6 @@
     color: #6b7280;
 }
 
-/* Mobile Menu */
 .mobile-menu {
     display: none;
 }
@@ -136,11 +133,14 @@
     display: flex;
     flex-direction: column;
     background-color: white;
+    position: absolute;
+    right: 5%;
+    top: 100%;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 0.5rem;
     padding: 1rem;
-    z-index: 100; /* Ensure it's layered above */
+    z-index: 100; 
 }
 
 .mobile-menu-link {
@@ -162,9 +162,7 @@
     margin: 0.75rem 0;
 }
 
-/* Responsive styles for different screen sizes */
 
-/* Small screens (640px and up) */
 @media (min-width: 640px) {
     .navbar-searchbar {
         display: none;
@@ -184,7 +182,6 @@
     }
 }
 
-/* Medium screens (768px and up) */
 @media (min-width: 768px) {
     .navbar-inner {
         padding: 1rem;
@@ -209,7 +206,6 @@
     }
 }
 
-/* Large screens (1024px and up) */
 @media (min-width: 1024px) {
     .navbar-wrapper {
         max-width: 90%;
@@ -226,7 +222,6 @@
     }
 }
 
-/* Extra-large screens (1280px and up) */
 @media (min-width: 1280px) {
     .navbar-wrapper {
         max-width: 85%;

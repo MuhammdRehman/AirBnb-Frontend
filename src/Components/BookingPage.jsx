@@ -5,6 +5,7 @@ import '../Styles/BookingPage.css';
 import ListingDetails from './ListingDetails';
 import { useAuthStore } from '../store/useAuthStore';
 import toast from 'react-hot-toast';
+import Navbar from './Navbar';
 
 const BookingPage = () => {
     const { user } = useAuthStore();
@@ -15,8 +16,16 @@ const BookingPage = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            role: user.role,
+        },
+    };
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/listings/${id}`)
+        axios.get(`http://localhost:3001/api/listings/${id}`, config)
             .then((response) => {
                 setListing(response.data);
             })
@@ -33,69 +42,73 @@ const BookingPage = () => {
             setSuccess('');
             return;
         }
-    
+
         try {
             const response = await axios.post(`http://localhost:3001/api/listings/bookings/${id}`,
                 {
-                    userId: user._id,      
-                    checkIn,               
-                    checkOut,              
-                },
-               
+                    userId: user._id,
+                    checkIn,
+                    checkOut,
+                }, config
+
             );
             console.log('Booking Successful:', response.data);
             setSuccess('Booking Successful!');
             toast.success("Booked Successfully");
             setError('');
             navigate("/");
-            
+
+
         } catch (err) {
             console.error('Error making booking:', err.response?.data || err.message);
             setError(err.response?.data?.message || 'Failed to complete booking.');
             setSuccess('');
         }
     };
-    
+
     return (
-        <div className="booking-page">
-            <h1>Booking Details</h1>
+        <>
+            <Navbar />
+            <div className="booking-page">
+                <h1>Booking Details</h1>
 
-            {listing ? (
-                <div className="listing-section">
-                    <ListingDetails />
-                </div>
-            ) : (
-                <p>Loading listing details...</p>
-            )}
+                {listing ? (
+                    <div className="listing-section">
+                        <ListingDetails />
+                    </div>
+                ) : (
+                    <p>Loading listing details...</p>
+                )}
 
-            <form onSubmit={handleSubmit}>
-                <div className="booking-form">
-                    <h2>Book Your Stay</h2>
-                    {error && <p className="error">{error}</p>}
-                    {success && <p className="success">{success}</p>}
+                <form onSubmit={handleSubmit}>
+                    <div className="booking-form">
+                        <h2>Book Your Stay</h2>
+                        {error && <p className="error">{error}</p>}
+                        {success && <p className="success">{success}</p>}
 
-                    <label>
-                        Check-in Date:
-                        <input
-                            type="date"
-                            value={checkIn}
-                            onChange={(e) => setCheckIn(e.target.value)}
-                        />
-                    </label>
+                        <label>
+                            Check-in Date:
+                            <input
+                                type="date"
+                                value={checkIn}
+                                onChange={(e) => setCheckIn(e.target.value)}
+                            />
+                        </label>
 
-                    <label>
-                        Check-out Date:
-                        <input
-                            type="date"
-                            value={checkOut}
-                            onChange={(e) => setCheckOut(e.target.value)}
-                        />
-                    </label>
+                        <label>
+                            Check-out Date:
+                            <input
+                                type="date"
+                                value={checkOut}
+                                onChange={(e) => setCheckOut(e.target.value)}
+                            />
+                        </label>
 
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
-        </div>
+                        <button className='booking-button' type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 };
 

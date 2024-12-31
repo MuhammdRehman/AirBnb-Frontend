@@ -37,7 +37,7 @@ input:focus {
     border-color: #b30000;
 }
 
-button {
+.button {
     width: 100%;
     padding: 10px;
     background-color: #cc0000;
@@ -48,7 +48,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button:hover {
     background-color: #990000;
 }
 

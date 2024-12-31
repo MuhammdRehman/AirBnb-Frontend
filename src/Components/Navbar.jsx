@@ -53,10 +53,10 @@ const Navbar = ({ setCategory }) => {
                         </div>
                     ) : (
                         <div className="navbar-links visible">
-                            <NavLink to="/stays" className="nav-link">
+                            <NavLink to="/profile" className="nav-link">
                                 Stays
                             </NavLink>
-                            <NavLink to="/experiences" className="nav-link">
+                            <NavLink to="/profile" className="nav-link">
                                 Experiences
                             </NavLink>
                         </div>
@@ -96,10 +96,10 @@ const Navbar = ({ setCategory }) => {
                         <NavLink to="/listingform" className="mobile-menu-link" onClick={<Navigate to={'/listingform'} />}>
                             Airbnb Your Home
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'#'} />}>
+                        <NavLink to="/profile" className="mobile-menu-link" onClick={<Navigate to={'#'} />}>
                             Host an Experience
                         </NavLink>
-                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'/helpcenter'} />}>
+                        <NavLink to="/" className="mobile-menu-link" onClick={<Navigate to={'#'} />}>
                             Help Center
                         </NavLink>
                     </div>
